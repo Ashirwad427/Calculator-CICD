@@ -5,7 +5,7 @@ pipeline {
     // 2. Define the tools needed for the build
     tools {
         // This name MUST match the name you configured in Global Tool Configuration
-        maven 'maven-3.9.1'
+        maven 'Maven3'
     }
 
     // 3. Define the stages of the pipeline
