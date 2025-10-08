@@ -38,12 +38,19 @@ pipeline {
             }
         }
 
-        // --- NEW FINAL STAGE: Deploy with Ansible ---
+        // STAGE 5: Deploy the application using the Ansible Plugin
         stage('Deploy with Ansible') {
             steps {
-                echo "Deploying the application..."
-                // This command runs the playbook and passes the image name as a variable
-                sh "ansible-playbook -i inventory.ini deploy.yml --extra-vars 'docker_image=${DOCKER_IMAGE}'"
+                echo "Deploying the application using the Ansible plugin..."
+                // This step uses the Ansible plugin to run the playbook
+                ansiblePlaybook(
+                    ansible: 'Ansible', // The name of the Ansible tool you configured in Jenkins
+                    playbook: 'deploy.yml',
+                    inventory: 'inventory.ini',
+                    extraVars: [
+                        docker_image: "${DOCKER_IMAGE}"
+                    ]
+                )
             }
         }
     }
