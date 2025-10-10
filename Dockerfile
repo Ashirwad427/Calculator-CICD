@@ -18,4 +18,4 @@ COPY --from=build /app/target/scientific-calculator-1.0-SNAPSHOT-jar-with-depend
 
 # Command to run the application when the container starts
 CMD ["java", "-jar", "app.jar"]
-# Comment to check SCM polling
+# Comment to check Webhook trigger
