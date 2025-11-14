@@ -9,8 +9,8 @@ COPY src ./src
 RUN mvn clean install
 
 # --- Run Stage ---
-# Use a slim Java 11 image from a reliable source (eclipse-temurin)
-FROM eclipse-temurin:11-jre-minimal
+# Use the standard, official openjdk 11 JRE image.
+FROM openjdk:11-jre
 WORKDIR /app
 
 # Copy the JAR file from the 'build' stage
