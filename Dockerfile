@@ -9,13 +9,13 @@ COPY src ./src
 RUN mvn clean install
 
 # --- Run Stage ---
-# Use a slim Java image to run the application
-FROM openjdk:11-jre-slim
+# Use a slim Java 11 image from a reliable source (eclipse-temurin)
+FROM eclipse-temurin:11-jre-minimal
 WORKDIR /app
 
 # Copy the JAR file from the 'build' stage
+# The 'jar-with-dependencies' name comes from your pom.xml
 COPY --from=build /app/target/scientific-calculator-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
 
 # Command to run the application when the container starts
 CMD ["java", "-jar", "app.jar"]
-# Comment to check Webhook trigger
