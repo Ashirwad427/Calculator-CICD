@@ -10,7 +10,7 @@ RUN mvn clean install
 
 # --- Run Stage ---
 # Use the standard, official openjdk 11 JRE image.
-FROM openjdk:11-jre
+FROM openjdk:11.0.11-jre-slim
 WORKDIR /app
 
 # Copy the JAR file from the 'build' stage
