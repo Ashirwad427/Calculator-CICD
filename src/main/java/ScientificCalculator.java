@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 /**
  * A menu-driven scientific calculator application for a DevOps mini-project.
  * Implements Square Root, Factorial, Natural Logarithm, and Power functions
+ Trigger build
  */
 public class ScientificCalculator {
 
@@ -144,3 +145,4 @@ public class ScientificCalculator {
     }
 
 }
+
